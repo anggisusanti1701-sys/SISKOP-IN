@@ -109,8 +109,9 @@ details.nama .isi{padding:0 14px 14px;border-top:1px solid var(--line)}
 <div class="chartbox"><h4>Status tindak lanjut</h4><div id="pubStatus"></div></div>
 <div class="chartbox"><h4>Emosi/respons yang teramati</h4><div id="pubEmosi"></div></div>
 <div class="chartbox"><h4>Konteks kegiatan</h4><div id="pubKonteks"></div></div>
+<div class="chartbox"><h4>Kelas dengan laporan terbanyak</h4><div id="pubKelas"></div></div>
 </div>
-<p class="sub" style="margin:14px 0 0">Rincian emosi dan konteks baru ditampilkan bila ada minimal 5 laporan pada periode yang dilihat, untuk melindungi identitas peserta didik.</p>
+<p class="sub" style="margin:14px 0 0">Rincian emosi, konteks, dan kelas baru ditampilkan bila ada minimal 5 laporan pada periode yang dilihat, untuk melindungi identitas peserta didik.</p>
 </div></div></section>
 <section id="panduan" class="tabpage hidden"><div class="panel"><h2>Panduan, batasan, dan keamanan</h2><p class="sub">Gunakan aplikasi sebagai alat koordinasi awal, dengan tetap mengutamakan martabat, keselamatan, dan hak peserta didik.</p>
 <div class="guide"><h3><span class="num">1</span>Panduan pengisian</h3><ol>
@@ -277,19 +278,20 @@ function gambarPublik(){
   $('pubTrenRingkas').textContent=tot6?`Total ${tot6} laporan dalam 6 bulan; terbanyak pada ${namaBulan(puncak.k,true)} (${puncak.tot} laporan).`:'Belum ada laporan pada 6 bulan terakhir.';
   $('pubTrenChart').innerHTML=trenSvg(data);
   $('pubTrenLegend').innerHTML='';
-  const semua=pubPilih==='all',x=semua?pubData.semua:(bln[pubPilih]||{tot:0,level:{},status:{},emosi:{},konteks:{},rincian:false}),n=x.tot;
+  const semua=pubPilih==='all',x=semua?pubData.semua:(bln[pubPilih]||{tot:0,level:{},status:{},emosi:{},konteks:{},kelas:{},rincian:false}),n=x.tot;
   $('pubJudul').textContent='Ringkasan '+(semua?'semua bulan':namaBulan(pubPilih,true));
   const belum=x.status['Belum ditinjau']||0,sel=x.status['Selesai']||0;
   let kartu4;
   if(semua){kartu4=['Rata-rata per bulan',(n/(ada.length||1)).toFixed(1).replace('.',',')]}
   else{const prev=bln[geserBulan(pubPilih,-1)]?bln[geserBulan(pubPilih,-1)].tot:0,d=n-prev;kartu4=['Dibanding bulan lalu',d>0?'▲ '+d:d<0?'▼ '+(-d):'Tetap']}
-  $('pubStat').innerHTML=[['Total laporan',n],['Sudah ditinjau Guru BK',n?Math.round((n-belum)/n*100)+'%':'—'],['Tindak lanjut selesai',n?Math.round(sel/n*100)+'%':'—'],kartu4].map(([a,b])=>`<div class="stat"><span>${a}</span><strong>${b}</strong></div>`).join('');
+  $('pubStat').innerHTML=[['Total laporan',n],['Prioritas Segera',x.level['Segera']||0],['Tindak lanjut selesai',n?Math.round(sel/n*100)+'%':'—'],kartu4].map(([a,b])=>`<div class="stat"><span>${a}</span><strong>${b}</strong></div>`).join('');
   $('pubPrioritas').innerHTML=batang(LEVEL.map(l=>[l,x.level[l]||0]),n,6,WARNA);
   $('pubStatus').innerHTML=batang(STATUS.map(t=>[t,(x.status[t]||0)+(t==='Pemantauan'?(x.status['Sedang ditindaklanjuti']||0):0)]),n,6,WSTATUS);
   const urut=o=>Object.entries(o||{}).sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0]));
   const sembunyi=`<div class="kosong">Rincian disembunyikan karena baru ada ${n} laporan (minimal ${pubData.minRincian}) agar identitas peserta didik tetap terlindungi.</div>`;
   $('pubEmosi').innerHTML=(n&&!x.rincian)?sembunyi:batang(urut(x.emosi),n,6);
   $('pubKonteks').innerHTML=(n&&!x.rincian)?sembunyi:batang(urut(x.konteks),n,6);
+  $('pubKelas').innerHTML=(n&&!x.rincian)?sembunyi:batang(urut(x.kelas),n,5);
   $('pubMsg').textContent='Diperbarui '+fmt(pubData.diperbarui)+'.';
   $('pubIsi').classList.remove('hidden');
 }
