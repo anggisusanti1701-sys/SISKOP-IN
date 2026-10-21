@@ -73,7 +73,7 @@ details.nama .isi{padding:0 14px 14px;border-top:1px solid var(--line)}
 <form id="bkForm"><label for="bkKode">Kode akses Guru BK</label><input id="bkKode" type="password" autocomplete="off" required>
 <div class="btnrow"><button class="btn" type="submit">Masuk</button></div><p id="bkMsg" class="hint" role="status" aria-live="polite"></p></form></div>
 <div id="bkApp" class="hidden"><div class="panel">
-<div class="reporttop"><div><h2>Laporan masuk</h2><p class="sub" style="margin:0 0 14px">Daftar di bawah hanya berisi nama siswa yang baru dilaporkan. Setelah tindak lanjut disimpan, nama pindah ke bagian Segera, Pemantauan, atau Selesai (klik kartu di atas untuk melihatnya). Dasbor terkunci otomatis saat Anda berpindah tab.</p></div><div class="btnrow" style="margin:0"><button class="btn secondary" id="bkRefresh" type="button">Muat ulang</button><button class="btn danger" id="bkKeluar" type="button">Keluar</button></div></div>
+<div class="reporttop"><div><h2>Laporan masuk</h2></div><div class="btnrow" style="margin:0"><button class="btn secondary" id="bkRefresh" type="button">Muat ulang</button></div></div>
 <div class="stats">
 <button type="button" class="stat statbtn" data-go="Semua" aria-pressed="false"><span>Total laporan</span><strong id="totalStat">0</strong><em>Semua nama siswa ›</em></button>
 <button type="button" class="stat statbtn warn" data-go="Belum ditinjau" aria-pressed="false"><span>Belum ditinjau</span><strong id="newStat">0</strong><em>Laporan baru masuk ›</em></button>
@@ -98,7 +98,7 @@ details.nama .isi{padding:0 14px 14px;border-top:1px solid var(--line)}
 </div></details></div></div>
 </section>
 <section id="grafik" class="tabpage hidden"><div class="panel">
-<div class="reporttop"><div><h2>Grafik laporan</h2><p class="sub" style="margin:0 0 14px;max-width:620px">Gambaran umum laporan yang masuk dan perkembangan tindak lanjutnya, agar seluruh guru dapat melihat bahwa setiap laporan ditanggapi. Hanya angka ringkasan: tanpa nama peserta didik, kelas, maupun isi laporan.</p></div><div class="btnrow" style="margin:0"><button class="btn secondary" id="pubRefresh" type="button">Muat ulang</button></div></div>
+<div class="reporttop"><div><h2>Grafik laporan</h2></div></div>
 <p id="pubMsg" class="hint" role="status" aria-live="polite"></p>
 <div id="pubIsi" class="hidden">
 <div class="rekaptop" style="margin-top:0"><h4 id="pubJudul" style="margin:0;color:var(--navy);font-size:15px"></h4><div><label for="pubBulan" style="margin:0 0 4px">Bulan</label><select id="pubBulan"></select></div></div>
@@ -179,7 +179,6 @@ $('bkForm').addEventListener('submit',async e=>{e.preventDefault();
   try{const r=await api({aksi:'daftar',kodeBK:k});if(terima(r)){kodeBK=k;$('bkKode').value='';pesanBK('');tampil(true);render()}}
   catch(err){pesanBK(GAGAL)}finally{btn.disabled=false}});
 $('bkRefresh').onclick=async()=>{try{const r=await api({aksi:'daftar',kodeBK});if(terima(r)){pesanBaru='';render()}else kunci()}catch(err){alert(GAGAL)}};
-$('bkKeluar').onclick=kunci;
 $('filterStatus').addEventListener('change',render);
 /* ===== Rekap & tren bulanan ===== */
 let rekapPilih='';
@@ -261,9 +260,9 @@ async function muatPublik(paksa){
   $('pubMsg').textContent='Memuat grafik…';
   try{
     const r=await api({aksi:'rekap',token:KODE_RAHASIA});
-    if(!r.ok){$('pubMsg').textContent=r.pesan||'Grafik belum dapat dimuat.';return}
+    if(!r.ok){$('pubMsg').textContent='';return}
     pubData=r;pubWaktu=Date.now();gambarPublik();
-  }catch(err){$('pubMsg').textContent='Grafik belum dapat dimuat. Periksa koneksi internet, atau pastikan Code.gs terbaru sudah diterapkan sebagai versi baru dengan akses “Siapa saja”.'}
+  }catch(err){$('pubMsg').textContent=''}
 }
 function gambarPublik(){
   const bln={};pubData.bulan.forEach(b=>{bln[b.k]=b});
@@ -295,7 +294,6 @@ function gambarPublik(){
   $('pubIsi').classList.remove('hidden');
 }
 $('pubBulan').onchange=e=>{pubPilih=e.target.value;gambarPublik()};
-$('pubRefresh').onclick=()=>muatPublik(true);
 const KOSONG={'Belum ditinjau':'Tidak ada laporan baru. Semua laporan yang masuk sudah ditindaklanjuti.','Semua':'Belum ada laporan.'};
 function kartuNama(r){
   const sg=r.level==='Segera';
