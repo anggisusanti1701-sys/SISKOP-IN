@@ -24,6 +24,7 @@ const KODE_RAHASIA = 'AL-MADANI';     // harus SAMA PERSIS dengan KODE_RAHASIA d
 .guide{border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-top:14px;background:#fbfdfe}.guide h3{display:flex;align-items:center;gap:10px;margin:0 0 10px;font-size:16px;color:var(--navy)}.guide .num{width:26px;height:26px;border-radius:50%;background:var(--teal);color:#fff;font-size:13px;display:inline-flex;align-items:center;justify-content:center;flex:none}.guide ol,.guide ul{margin:0;padding-left:22px;font-size:14px;line-height:1.65}.guide li{margin:5px 0}.guide .urgent{margin-top:12px}
 @media(max-width:820px){.grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(3,1fr)}}@media(max-width:480px){.row,.filterbar{grid-template-columns:1fr}.panel{padding:15px}.stats{gap:6px}.stat{padding:10px}.stat strong{font-size:21px}}
 .rekap{border:1px solid var(--line);border-radius:14px;background:#fbfdfe;padding:14px 16px;margin-bottom:18px}.rekap>summary{cursor:pointer;font-weight:800;color:var(--navy);font-size:16px;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:10px}.rekap>summary::-webkit-details-marker{display:none}.rekap>summary::after{content:"▾";color:var(--muted)}.rekap[open]>summary::after{content:"▴"}.rekaptop{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;margin:12px 0}.rekaptop select{width:auto;min-width:190px}.rekapstats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px}.rekapstats .stat strong{font-size:21px}.chartbox{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:12px}.chartbox h4{margin:0 0 10px;font-size:13px;color:var(--navy)}.rekapgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.rekapgrid .chartbox{margin:0}.hbar{display:grid;grid-template-columns:minmax(90px,36%) 1fr auto;gap:8px;align-items:center;font-size:12.5px;margin:7px 0}.hbar span{overflow-wrap:anywhere}.hbar .track{background:#e8eff4;border-radius:6px;height:12px;overflow:hidden}.hbar .fill{height:100%;background:var(--teal);border-radius:6px}.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:8px}.legend i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:5px;vertical-align:-1px}.kosong{font-size:12.5px;color:var(--muted)}.trensum{font-size:13px;margin:0 0 8px}@media(max-width:820px){.rekapgrid{grid-template-columns:1fr}.rekapstats{grid-template-columns:repeat(2,1fr)}}
+.rekap{margin-top:22px}button.statbtn{font:inherit;text-align:left;width:100%;cursor:pointer;color:inherit;transition:transform .12s,box-shadow .12s,border-color .12s}button.statbtn:hover{transform:translateY(-2px);box-shadow:0 6px 16px #17324d18;border-color:var(--teal)}button.statbtn:focus-visible{outline:3px solid var(--teal);outline-offset:2px}button.statbtn[aria-pressed="true"]{border-color:var(--navy);box-shadow:inset 0 0 0 2px var(--navy);background:#fff}button.statbtn.warn{border-left:5px solid var(--gold)}button.statbtn.alert{border-left:5px solid var(--red)}.statbtn strong{font-size:34px;line-height:1.1}.statbtn.warn strong.ada{color:#9a6700}.statbtn.alert strong.ada{color:var(--red)}.statbtn em{display:block;font-style:normal;font-size:12px;font-weight:700;color:var(--teal);margin-top:6px}.hasilfilter{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;font-size:13px;margin:12px 0 14px;outline:none}.hasilfilter .btn{padding:7px 12px;font-size:13px}@media(prefers-reduced-motion:reduce){button.statbtn{transition:none}button.statbtn:hover{transform:none}}@media(max-width:560px){.stats{grid-template-columns:1fr!important}button.statbtn{display:grid;grid-template-columns:1fr auto;column-gap:12px;align-items:center}.statbtn span{grid-column:1}.statbtn strong{grid-column:2;grid-row:1/3;font-size:30px}.statbtn em{grid-column:1;margin-top:2px}}
 </style>
 </head>
 <body>
@@ -62,7 +63,14 @@ const KODE_RAHASIA = 'AL-MADANI';     // harus SAMA PERSIS dengan KODE_RAHASIA d
 <div class="btnrow"><button class="btn" type="submit">Masuk</button></div><p id="bkMsg" class="hint" role="status" aria-live="polite"></p></form></div>
 <div id="bkApp" class="hidden"><div class="panel">
 <div class="reporttop"><div><h2>Laporan masuk</h2><p class="sub" style="margin:0 0 14px">Dasbor terkunci otomatis saat Anda berpindah tab.</p></div><div class="btnrow" style="margin:0"><button class="btn secondary" id="bkRefresh" type="button">Muat ulang</button><button class="btn danger" id="bkKeluar" type="button">Keluar</button></div></div>
-<div class="stats"><div class="stat"><span>Total laporan</span><strong id="totalStat">0</strong></div><div class="stat"><span>Belum ditinjau</span><strong id="newStat">0</strong></div><div class="stat"><span>Segera (belum selesai)</span><strong id="urgentStat">0</strong></div></div>
+<div class="stats">
+<button type="button" class="stat statbtn" data-go="Semua" aria-pressed="false"><span>Total laporan</span><strong id="totalStat">0</strong><em>Lihat semua laporan ›</em></button>
+<button type="button" class="stat statbtn warn" data-go="Belum ditinjau" aria-pressed="false"><span>Belum ditinjau</span><strong id="newStat">0</strong><em>Menunggu dibaca Guru BK ›</em></button>
+<button type="button" class="stat statbtn alert" data-go="Segera" aria-pressed="false"><span>Segera (belum selesai)</span><strong id="urgentStat">0</strong><em>Perlu respons cepat ›</em></button>
+</div>
+<p id="infoDasbor" class="hint" role="status" aria-live="polite" style="margin:-6px 0 14px"></p>
+<div class="filterbar" id="filterBar"><input id="search" placeholder="Cari nama, kelas, atau pelapor…"><select id="filterStatus"><option>Semua</option><option>Belum ditinjau</option><option>Sedang ditindaklanjuti</option><option>Selesai</option></select></div>
+<div id="hasilFilter" class="hasilfilter" role="status" aria-live="polite" tabindex="-1"></div><div id="reportsList"></div><div id="emptyState" class="empty hidden">Belum ada laporan yang cocok.</div>
 <details class="rekap" id="rekap" open><summary>📊 Rekap &amp; tren bulanan</summary>
 <div class="rekaptop"><p class="sub" style="margin:0;max-width:520px">Dihitung otomatis dari semua laporan berdasarkan tanggal kejadian. Hanya angka ringkasan, tanpa nama peserta didik.</p><div><label for="rekapBulan" style="margin:0 0 4px">Bulan rekap</label><select id="rekapBulan"></select></div></div>
 <div class="chartbox"><h4>Tren 6 bulan terakhir (jumlah laporan per prioritas)</h4><p class="trensum" id="trenRingkas"></p><div id="trenChart"></div><div class="legend" id="trenLegend"></div></div>
@@ -74,9 +82,7 @@ const KODE_RAHASIA = 'AL-MADANI';     // harus SAMA PERSIS dengan KODE_RAHASIA d
 <div class="chartbox"><h4>Emosi/respons yang teramati</h4><div id="rekapEmosi"></div></div>
 <div class="chartbox"><h4>Konteks kegiatan</h4><div id="rekapKonteks"></div></div>
 <div class="chartbox"><h4>Kelas dengan laporan terbanyak</h4><div id="rekapKelas"></div></div>
-</div></details>
-<div class="filterbar"><input id="search" placeholder="Cari nama, kelas, atau pelapor…"><select id="filterStatus"><option>Semua</option><option>Belum ditinjau</option><option>Sedang ditindaklanjuti</option><option>Selesai</option></select></div>
-<div id="reportsList"></div><div id="emptyState" class="empty hidden">Belum ada laporan yang cocok.</div></div></div>
+</div></details></div></div>
 </section>
 <section id="grafik" class="tabpage hidden"><div class="panel">
 <div class="reporttop"><div><h2>Grafik laporan</h2><p class="sub" style="margin:0 0 14px;max-width:620px">Gambaran umum laporan yang masuk dan perkembangan tindak lanjutnya, agar seluruh guru dapat melihat bahwa setiap laporan ditanggapi. Hanya angka ringkasan: tanpa nama peserta didik, kelas, maupun isi laporan.</p></div><div class="btnrow" style="margin:0"><button class="btn secondary" id="pubRefresh" type="button">Muat ulang</button></div></div>
@@ -145,21 +151,21 @@ $('reportForm').addEventListener('submit',async e=>{
   else{alert('Laporan gagal dikirim. Isian Anda belum dihapus; periksa koneksi internet lalu coba lagi.')}
 });
 
-let kodeBK='',laporan=[];
+let kodeBK='',laporan=[],rawTerakhir='',waktuMuat=0,pesanBaru='';
 const pesanBK=t=>{$('bkMsg').textContent=t};
 async function api(body){const res=await fetch(APPS_SCRIPT_URL,{method:'POST',body:JSON.stringify(body)});return res.json()}
 function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function fmt(s){if(!s)return '—';const d=new Date(s);return isNaN(d)?s:d.toLocaleString('id-ID',{dateStyle:'medium',timeStyle:'short'})}
 function tampil(on){$('bkLogin').classList.toggle('hidden',on);$('bkApp').classList.toggle('hidden',!on)}
-function kunci(){kodeBK='';laporan=[];$('reportsList').innerHTML='';bersihRekap();$('pendingCount').textContent='';pesanBK('');tampil(false)}
-function terima(r){if(!r.ok){pesanBK(r.pesan||'Kode akses salah.');return false}laporan=r.laporan.map(x=>({...x,emotions:String(x.emotions||'').split('; ').filter(Boolean)}));return true}
+function kunci(){kodeBK='';laporan=[];$('reportsList').innerHTML='';bersihRekap();pesanBaru='';rawTerakhir='';$('infoDasbor').textContent='';$('hasilFilter').innerHTML='';$('filterStatus').value='Semua';$('search').value='';$('pendingCount').textContent='';pesanBK('');tampil(false)}
+function terima(r){if(!r.ok){pesanBK(r.pesan||'Kode akses salah.');return false}rawTerakhir=JSON.stringify(r.laporan);waktuMuat=Date.now();laporan=r.laporan.map(x=>({...x,emotions:String(x.emotions||'').split('; ').filter(Boolean)}));return true}
 const GAGAL='Tidak dapat memuat data. Pastikan Code.gs terbaru sudah diterapkan sebagai versi baru dengan akses “Siapa saja”, lalu coba lagi.';
 $('bkForm').addEventListener('submit',async e=>{e.preventDefault();
   if(!APPS_SCRIPT_URL){pesanBK('Aplikasi belum dihubungkan ke Google Apps Script.');return}
   const btn=e.target.querySelector('button'),k=$('bkKode').value;btn.disabled=true;pesanBK('Memeriksa kode…');
   try{const r=await api({aksi:'daftar',kodeBK:k});if(terima(r)){kodeBK=k;$('bkKode').value='';pesanBK('');tampil(true);render()}}
   catch(err){pesanBK(GAGAL)}finally{btn.disabled=false}});
-$('bkRefresh').onclick=async()=>{try{const r=await api({aksi:'daftar',kodeBK});if(terima(r))render();else kunci()}catch(err){alert(GAGAL)}};
+$('bkRefresh').onclick=async()=>{try{const r=await api({aksi:'daftar',kodeBK});if(terima(r)){pesanBaru='';render()}else kunci()}catch(err){alert(GAGAL)}};
 $('bkKeluar').onclick=kunci;
 $('search').addEventListener('input',render);$('filterStatus').addEventListener('change',render);
 /* ===== Rekap & tren bulanan ===== */
@@ -215,6 +221,35 @@ function rekap(){
 $('rekapBulan').onchange=e=>{rekapPilih=e.target.value;rekap()};
 function bersihRekap(){rekapPilih='';['trenChart','trenLegend','rekapStat','rekapPrioritas','rekapStatus','rekapEmosi','rekapKonteks','rekapKelas','rekapBulan'].forEach(i=>{$(i).innerHTML=''});['trenRingkas','rekapJudul'].forEach(i=>{$(i).textContent=''})}
 /* ===== akhir rekap ===== */
+/* ===== Kartu ringkasan, filter cepat, dan pembaruan otomatis ===== */
+const OPSI_FILTER=[['Semua','Semua laporan'],['Belum ditinjau','Belum ditinjau'],['Sedang ditindaklanjuti','Sedang ditindaklanjuti'],['Selesai','Selesai'],['Segera','Segera (belum selesai)']];
+const NAMA_FILTER={'Semua':'Semua laporan','Belum ditinjau':'Belum ditinjau','Sedang ditindaklanjuti':'Sedang ditindaklanjuti','Selesai':'Selesai','Segera':'Segera (belum selesai)'};
+function segarkanKartu(){
+  const pend=laporan.filter(r=>r.status==='Belum ditinjau').length,seg=laporan.filter(r=>r.level==='Segera'&&r.status!=='Selesai').length;
+  const hit={'Semua':laporan.length,'Belum ditinjau':pend,'Sedang ditindaklanjuti':laporan.filter(r=>r.status==='Sedang ditindaklanjuti').length,'Selesai':laporan.filter(r=>r.status==='Selesai').length,'Segera':seg};
+  const sel=$('filterStatus'),cur=sel.value||'Semua';
+  if(sel.options.length!==OPSI_FILTER.length){sel.innerHTML=OPSI_FILTER.map(([v])=>`<option value="${v}"></option>`).join('');sel.value=cur}
+  OPSI_FILTER.forEach(([v,t],i)=>{sel.options[i].textContent=`${t} (${hit[v]})`});
+  $('newStat').classList.toggle('ada',pend>0);$('urgentStat').classList.toggle('ada',seg>0);
+  const jam=new Date(waktuMuat||Date.now()).toLocaleTimeString('id-ID',{hour:'2-digit',minute:'2-digit'});
+  $('infoDasbor').textContent=(pesanBaru?pesanBaru+' · ':'')+'Diperbarui otomatis setiap 1 menit · terakhir '+jam;
+}
+function gulirKe(el){const kurang=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;el.scrollIntoView({behavior:kurang?'auto':'smooth',block:'start'})}
+document.querySelectorAll('[data-go]').forEach(b=>{b.onclick=()=>{$('filterStatus').value=b.dataset.go;$('search').value='';render();gulirKe($('filterBar'));$('hasilFilter').focus({preventScroll:true})}});
+async function cekBaru(){
+  if(!kodeBK||document.hidden||$('bkApp').classList.contains('hidden'))return;
+  try{
+    const r=await api({aksi:'daftar',kodeBK});
+    if(!r.ok||!kodeBK)return;
+    if(JSON.stringify(r.laporan)===rawTerakhir)return;
+    const a=document.activeElement,sibuk=a&&$('reportsList').contains(a)&&/^(TEXTAREA|SELECT|INPUT)$/.test(a.tagName);
+    if(sibuk){pesanBaru='🔔 Ada laporan atau pembaruan baru: tekan “Muat ulang” setelah selesai mengetik';$('infoDasbor').textContent=pesanBaru;return}
+    const lama=laporan.length;
+    if(terima(r)){const tambah=laporan.length-lama;pesanBaru=tambah>0?'🔔 '+tambah+' laporan baru masuk':'';render()}
+  }catch(err){}
+}
+setInterval(cekBaru,60000);
+/* ===== akhir kartu ringkasan ===== */
 /* ===== Grafik untuk semua guru (angka ringkasan dari server) ===== */
 let pubData=null,pubPilih='',pubWaktu=0;
 async function muatPublik(paksa){
@@ -262,11 +297,16 @@ function render(){
   $('pendingCount').textContent=kodeBK&&pend?`(${pend})`:'';
   $('totalStat').textContent=laporan.length;$('newStat').textContent=pend;
   $('urgentStat').textContent=laporan.filter(r=>r.level==='Segera'&&r.status!=='Selesai').length;
+  segarkanKartu();
   rekap();
   const q=$('search').value.toLowerCase(),st=$('filterStatus').value;
-  const shown=laporan.filter(r=>(st==='Semua'||r.status===st)&&[r.student,r.className,r.reporter,r.observation].join(' ').toLowerCase().includes(q));
+  const shown=laporan.filter(r=>(st==='Semua'||(st==='Segera'?(r.level==='Segera'&&r.status!=='Selesai'):r.status===st))&&[r.student,r.className,r.reporter,r.observation].join(' ').toLowerCase().includes(q));
   $('reportsList').innerHTML=shown.map(r=>`<article class="report"><div class="reporttop"><div><h3>${esc(r.student)} · ${esc(r.className)}</h3><div class="meta">Dilaporkan oleh ${esc(r.reporter)} · ${esc(fmt(r.dateTime))}<br>Konteks: ${esc(r.context)}</div></div><span class="pill ${r.level==='Segera'?'urgent':r.level==='Perlu perhatian'?'high':''}">${esc(r.level)}</span></div><p><strong>Emosi/respons:</strong> ${r.emotions.map(x=>`<span class="tag">${esc(x)}</span>`).join(' ')}</p><p><strong>Pengamatan:</strong> ${esc(r.observation)}</p>${r.trigger?`<p><strong>Pemicu:</strong> ${esc(r.trigger)}</p>`:''}${r.support?`<p><strong>Dukungan awal:</strong> ${esc(r.support)}</p>`:''}${r.contact?`<p><strong>Hubungi keluarga:</strong> ${esc(r.contact)}</p>`:''}${r.notes?`<p><strong>Info tambahan:</strong> ${esc(r.notes)}</p>`:''}<div class="followbox"><label for="status-${r.id}">Status tindak lanjut</label><select id="status-${r.id}">${['Belum ditinjau','Sedang ditindaklanjuti','Selesai'].map(o=>`<option ${r.status===o?'selected':''}>${o}</option>`).join('')}</select><label for="follow-${r.id}">Catatan tindak lanjut BK (hindari detail sensitif yang tidak perlu)</label><textarea id="follow-${r.id}">${esc(r.followup)}</textarea><div class="btnrow"><button class="btn" type="button" data-save="${r.id}">Simpan tindak lanjut</button></div></div></article>`).join('');
   $('emptyState').classList.toggle('hidden',shown.length>0);
+  const qAsli=$('search').value.trim(),aktif=st!=='Semua'||qAsli;
+  $('hasilFilter').innerHTML=`<span>Menampilkan <strong>${shown.length}</strong> dari ${laporan.length} laporan · ${esc(NAMA_FILTER[st]||st)}${qAsli?` · pencarian “${esc(qAsli)}”`:''}</span>`+(aktif?'<button class="btn secondary" type="button" id="resetFilter">Tampilkan semua</button>':'');
+  if(aktif)$('resetFilter').onclick=()=>{$('filterStatus').value='Semua';$('search').value='';render()};
+  document.querySelectorAll('[data-go]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.go===st&&!qAsli)));
   document.querySelectorAll('[data-save]').forEach(b=>b.onclick=async()=>{const id=b.dataset.save,status=$('status-'+id).value,followup=$('follow-'+id).value.trim();b.disabled=true;
     try{const r=await api({aksi:'ubah',kodeBK,id,status,followup});
       if(r.ok){const x=laporan.find(v=>v.id===id);x.status=status;x.followup=followup;render();alert('Tindak lanjut tersimpan.')}else alert(r.pesan||'Gagal menyimpan.')}
