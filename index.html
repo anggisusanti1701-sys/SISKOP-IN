@@ -23,9 +23,19 @@ const KODE_RAHASIA = 'AL-MADANI';     // harus SAMA PERSIS dengan KODE_RAHASIA d
 .brand{display:flex;align-items:flex-start;gap:20px}.logo{width:clamp(84px,12vw,128px);height:auto;flex:none;align-self:flex-start;background:#fff;border-radius:18px;padding:6px;box-shadow:0 6px 18px rgba(0,0,0,.25);object-fit:contain}.brandtext{min-width:0;padding-top:2px;align-self:center}.brandsub{margin-top:14px}.brandsub p+p{margin-top:6px}header{padding-top:14px!important;padding-bottom:22px!important}@media(max-width:480px){.brand{gap:12px}.logo{width:72px;border-radius:14px;padding:4px}header p{font-size:13px}}
 .guide{border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-top:14px;background:#fbfdfe}.guide h3{display:flex;align-items:center;gap:10px;margin:0 0 10px;font-size:16px;color:var(--navy)}.guide .num{width:26px;height:26px;border-radius:50%;background:var(--teal);color:#fff;font-size:13px;display:inline-flex;align-items:center;justify-content:center;flex:none}.guide ol,.guide ul{margin:0;padding-left:22px;font-size:14px;line-height:1.65}.guide li{margin:5px 0}.guide .urgent{margin-top:12px}
 @media(max-width:820px){.grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(3,1fr)}}@media(max-width:480px){.row,.filterbar{grid-template-columns:1fr}.panel{padding:15px}.stats{gap:6px}.stat{padding:10px}.stat strong{font-size:21px}}
-.rekap{border:1px solid var(--line);border-radius:14px;background:#fbfdfe;padding:14px 16px;margin-bottom:18px}.rekap>summary{cursor:pointer;font-weight:800;color:var(--navy);font-size:16px;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:10px}.rekap>summary::-webkit-details-marker{display:none}.rekap>summary::after{content:"▾";color:var(--muted)}.rekap[open]>summary::after{content:"▴"}.rekaptop{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;margin:12px 0}.rekaptop select{width:auto;min-width:190px}.rekapstats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px}.rekapstats .stat strong{font-size:21px}.chartbox{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:12px}.chartbox h4{margin:0 0 10px;font-size:13px;color:var(--navy)}.rekapgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.rekapgrid .chartbox{margin:0}.hbar{display:grid;grid-template-columns:minmax(90px,36%) 1fr auto;gap:8px;align-items:center;font-size:12.5px;margin:7px 0}.hbar span{overflow-wrap:anywhere}.hbar .track{background:#e8eff4;border-radius:6px;height:12px;overflow:hidden}.hbar .fill{height:100%;background:var(--teal);border-radius:6px}.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:8px}.legend i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:5px;vertical-align:-1px}.kosong{font-size:12.5px;color:var(--muted)}.trensum{font-size:13px;margin:0 0 8px}@media(max-width:820px){.rekapgrid{grid-template-columns:1fr}.rekapstats{grid-template-columns:repeat(2,1fr)}}
+.rekap{border:1px solid var(--line);border-radius:14px;background:#fbfdfe;padding:14px 16px;margin-bottom:18px}.rekap>summary{cursor:pointer;font-weight:800;color:var(--navy);font-size:16px;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:10px}.rekap>summary::-webkit-details-marker{display:none}.rekap>summary::after{content:"▾";color:var(--muted)}.rekap[open]>summary::after{content:"▴"}.rekaptop{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;margin:12px 0}.rekaptop select{width:auto;min-width:190px}.rekapstats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px}.rekapstats .stat strong{font-size:21px}.chartbox{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:12px}.chartbox h4{margin:0 0 10px;font-size:13px;color:var(--navy)}.rekapgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.rekapgrid .chartbox{margin:0}.donat{display:flex;gap:14px;align-items:center;flex-wrap:wrap}.donat svg{flex:none;max-width:100%;height:auto}.dl{list-style:none;margin:0;padding:0;flex:1 1 150px;font-size:12.5px}.dl li{display:flex;align-items:center;gap:7px;margin:6px 0}.dl i{width:12px;height:12px;border-radius:50%;flex:none}.dl span{flex:1;overflow-wrap:anywhere}.dl b{white-space:nowrap}
+.hbar{display:grid;grid-template-columns:minmax(90px,36%) 1fr auto;gap:8px;align-items:center;font-size:12.5px;margin:7px 0}.hbar span{overflow-wrap:anywhere}.hbar .track{background:#e8eff4;border-radius:6px;height:12px;overflow:hidden}.hbar .fill{height:100%;background:var(--teal);border-radius:6px}.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:8px}.legend i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:5px;vertical-align:-1px}.kosong{font-size:12.5px;color:var(--muted)}.trensum{font-size:13px;margin:0 0 8px}@media(max-width:820px){.rekapgrid{grid-template-columns:1fr}.rekapstats{grid-template-columns:repeat(2,1fr)}}
 .rekap{margin-top:22px}button.statbtn{font:inherit;text-align:left;width:100%;cursor:pointer;color:inherit;transition:transform .12s,box-shadow .12s,border-color .12s}button.statbtn:hover{transform:translateY(-2px);box-shadow:0 6px 16px #17324d18;border-color:var(--teal)}button.statbtn:focus-visible{outline:3px solid var(--teal);outline-offset:2px}button.statbtn[aria-pressed="true"]{border-color:var(--navy);box-shadow:inset 0 0 0 2px var(--navy);background:#fff}button.statbtn.warn{border-left:5px solid var(--gold)}button.statbtn.alert{border-left:5px solid var(--red)}.statbtn strong{font-size:34px;line-height:1.1}.statbtn.warn strong.ada{color:#9a6700}.statbtn.alert strong.ada{color:var(--red)}.statbtn em{display:block;font-style:normal;font-size:12px;font-weight:700;color:var(--teal);margin-top:6px}.hasilfilter{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;font-size:13px;margin:12px 0 14px;outline:none}.hasilfilter .btn{padding:7px 12px;font-size:13px}@media(prefers-reduced-motion:reduce){button.statbtn{transition:none}button.statbtn:hover{transform:none}}@media(max-width:560px){.stats{grid-template-columns:1fr!important}button.statbtn{display:grid;grid-template-columns:1fr auto;column-gap:12px;align-items:center}.statbtn span{grid-column:1}.statbtn strong{grid-column:2;grid-row:1/3;font-size:30px}.statbtn em{grid-column:1;margin-top:2px}}
 .filterbar{grid-template-columns:1fr}.searchbox{position:relative}.searchbox svg{position:absolute;left:13px;top:50%;transform:translateY(-50%);width:18px;height:18px;stroke:var(--muted);fill:none;stroke-width:2;stroke-linecap:round;pointer-events:none}.searchbox input{padding-left:40px}.searchbox input:focus{outline:2px solid var(--teal);outline-offset:1px}
+.stats{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))!important}
+details.nama{padding:0}
+details.nama>summary{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;padding:12px 14px;cursor:pointer;list-style:none}
+details.nama>summary::-webkit-details-marker{display:none}
+details.nama>summary::before{content:"▸";color:var(--teal);font-size:14px}
+details.nama[open]>summary::before{content:"▾"}
+details.nama .nm{font-weight:700;color:var(--navy);flex:1 1 150px}
+details.nama .kl,details.nama .tg{font-size:13px;color:var(--muted)}
+details.nama .isi{padding:0 14px 14px;border-top:1px solid var(--line)}
 </style>
 </head>
 <body>
@@ -63,18 +73,20 @@ const KODE_RAHASIA = 'AL-MADANI';     // harus SAMA PERSIS dengan KODE_RAHASIA d
 <form id="bkForm"><label for="bkKode">Kode akses Guru BK</label><input id="bkKode" type="password" autocomplete="off" required>
 <div class="btnrow"><button class="btn" type="submit">Masuk</button></div><p id="bkMsg" class="hint" role="status" aria-live="polite"></p></form></div>
 <div id="bkApp" class="hidden"><div class="panel">
-<div class="reporttop"><div><h2>Laporan masuk</h2><p class="sub" style="margin:0 0 14px">Dasbor terkunci otomatis saat Anda berpindah tab.</p></div><div class="btnrow" style="margin:0"><button class="btn secondary" id="bkRefresh" type="button">Muat ulang</button><button class="btn danger" id="bkKeluar" type="button">Keluar</button></div></div>
+<div class="reporttop"><div><h2>Laporan masuk</h2><p class="sub" style="margin:0 0 14px">Daftar di bawah hanya berisi nama siswa yang baru dilaporkan. Setelah tindak lanjut disimpan, nama pindah ke bagian Segera, Pemantauan, atau Selesai (klik kartu di atas untuk melihatnya). Dasbor terkunci otomatis saat Anda berpindah tab.</p></div><div class="btnrow" style="margin:0"><button class="btn secondary" id="bkRefresh" type="button">Muat ulang</button><button class="btn danger" id="bkKeluar" type="button">Keluar</button></div></div>
 <div class="stats">
-<button type="button" class="stat statbtn" data-go="Semua" aria-pressed="false"><span>Total laporan</span><strong id="totalStat">0</strong><em>Lihat semua laporan ›</em></button>
-<button type="button" class="stat statbtn warn" data-go="Belum ditinjau" aria-pressed="false"><span>Belum ditinjau</span><strong id="newStat">0</strong><em>Menunggu dibaca Guru BK ›</em></button>
-<button type="button" class="stat statbtn alert" data-go="Segera" aria-pressed="false"><span>Segera (belum selesai)</span><strong id="urgentStat">0</strong><em>Perlu respons cepat ›</em></button>
+<button type="button" class="stat statbtn" data-go="Semua" aria-pressed="false"><span>Total laporan</span><strong id="totalStat">0</strong><em>Semua nama siswa ›</em></button>
+<button type="button" class="stat statbtn warn" data-go="Belum ditinjau" aria-pressed="false"><span>Belum ditinjau</span><strong id="newStat">0</strong><em>Laporan baru masuk ›</em></button>
+<button type="button" class="stat statbtn alert" data-go="Segera" aria-pressed="false"><span>Segera</span><strong id="urgentStat">0</strong><em>Perlu respons cepat ›</em></button>
+<button type="button" class="stat statbtn" data-go="Pemantauan" aria-pressed="false"><span>Pemantauan</span><strong id="monStat">0</strong><em>Dipantau Guru BK ›</em></button>
+<button type="button" class="stat statbtn" data-go="Selesai" aria-pressed="false"><span>Selesai</span><strong id="doneStat">0</strong><em>Tindak lanjut selesai ›</em></button>
 </div>
 <p id="infoDasbor" class="hint" role="status" aria-live="polite" style="margin:-6px 0 14px"></p>
-<div class="filterbar" id="filterBar"><div class="searchbox"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><input id="search" type="text" autocomplete="off" aria-label="Cari laporan berdasarkan nama, kelas, atau pelapor" placeholder="Cari nama, kelas, atau pelapor…"></div><input type="hidden" id="filterStatus" value="Semua"></div>
-<div id="hasilFilter" class="hasilfilter" role="status" aria-live="polite" tabindex="-1"></div><div id="reportsList"></div><div id="emptyState" class="empty hidden">Belum ada laporan yang cocok.</div>
-<details class="rekap" id="rekap" open><summary>📊 Rekap &amp; tren bulanan</summary>
+<div id="filterBar"><input type="hidden" id="filterStatus" value="Belum ditinjau"></div>
+<div id="hasilFilter" class="hasilfilter" role="status" aria-live="polite" tabindex="-1"></div><div id="reportsList"></div><div id="emptyState" class="empty hidden"></div>
+<details class="rekap" id="rekap" open><summary>📊 Rekap &amp; grafik lingkaran</summary>
 <div class="rekaptop"><p class="sub" style="margin:0;max-width:520px">Dihitung otomatis dari semua laporan berdasarkan tanggal kejadian. Hanya angka ringkasan, tanpa nama peserta didik.</p><div><label for="rekapBulan" style="margin:0 0 4px">Bulan rekap</label><select id="rekapBulan"></select></div></div>
-<div class="chartbox"><h4>Tren 6 bulan terakhir (jumlah laporan per prioritas)</h4><p class="trensum" id="trenRingkas"></p><div id="trenChart"></div><div class="legend" id="trenLegend"></div></div>
+<div class="chartbox"><h4>Laporan per bulan (6 bulan terakhir)</h4><p class="trensum" id="trenRingkas"></p><div id="trenChart"></div><div class="legend" id="trenLegend"></div></div>
 <h4 id="rekapJudul" style="margin:4px 0 8px;color:var(--navy);font-size:15px"></h4>
 <div class="rekapstats" id="rekapStat"></div>
 <div class="rekapgrid">
@@ -91,7 +103,7 @@ const KODE_RAHASIA = 'AL-MADANI';     // harus SAMA PERSIS dengan KODE_RAHASIA d
 <div id="pubIsi" class="hidden">
 <div class="rekaptop" style="margin-top:0"><h4 id="pubJudul" style="margin:0;color:var(--navy);font-size:15px"></h4><div><label for="pubBulan" style="margin:0 0 4px">Bulan</label><select id="pubBulan"></select></div></div>
 <div class="rekapstats" id="pubStat"></div>
-<div class="chartbox"><h4>Tren 6 bulan terakhir (jumlah laporan per prioritas)</h4><p class="trensum" id="pubTrenRingkas"></p><div id="pubTrenChart"></div><div class="legend" id="pubTrenLegend"></div></div>
+<div class="chartbox"><h4>Laporan per bulan (6 bulan terakhir)</h4><p class="trensum" id="pubTrenRingkas"></p><div id="pubTrenChart"></div><div class="legend" id="pubTrenLegend"></div></div>
 <div class="rekapgrid">
 <div class="chartbox"><h4>Prioritas laporan</h4><div id="pubPrioritas"></div></div>
 <div class="chartbox"><h4>Status tindak lanjut</h4><div id="pubStatus"></div></div>
@@ -158,8 +170,8 @@ async function api(body){const res=await fetch(APPS_SCRIPT_URL,{method:'POST',bo
 function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function fmt(s){if(!s)return '—';const d=new Date(s);return isNaN(d)?s:d.toLocaleString('id-ID',{dateStyle:'medium',timeStyle:'short'})}
 function tampil(on){$('bkLogin').classList.toggle('hidden',on);$('bkApp').classList.toggle('hidden',!on)}
-function kunci(){kodeBK='';laporan=[];$('reportsList').innerHTML='';bersihRekap();pesanBaru='';rawTerakhir='';$('infoDasbor').textContent='';$('hasilFilter').innerHTML='';$('filterStatus').value='Semua';$('search').value='';$('pendingCount').textContent='';pesanBK('');tampil(false)}
-function terima(r){if(!r.ok){pesanBK(r.pesan||'Kode akses salah.');return false}rawTerakhir=JSON.stringify(r.laporan);waktuMuat=Date.now();laporan=r.laporan.map(x=>({...x,emotions:String(x.emotions||'').split('; ').filter(Boolean)}));return true}
+function kunci(){kodeBK='';laporan=[];$('reportsList').innerHTML='';bersihRekap();pesanBaru='';rawTerakhir='';$('infoDasbor').textContent='';$('hasilFilter').innerHTML='';$('filterStatus').value='Belum ditinjau';$('pendingCount').textContent='';pesanBK('');tampil(false)}
+function terima(r){if(!r.ok){pesanBK(r.pesan||'Kode akses salah.');return false}rawTerakhir=JSON.stringify(r.laporan);waktuMuat=Date.now();laporan=r.laporan.map(x=>({...x,status:(x.status==='Sedang ditindaklanjuti'?'Pemantauan':(STATUS.includes(x.status)?x.status:'Belum ditinjau')),emotions:String(x.emotions||'').split('; ').filter(Boolean)}));return true}
 const GAGAL='Tidak dapat memuat data. Pastikan Code.gs terbaru sudah diterapkan sebagai versi baru dengan akses “Siapa saja”, lalu coba lagi.';
 $('bkForm').addEventListener('submit',async e=>{e.preventDefault();
   if(!APPS_SCRIPT_URL){pesanBK('Aplikasi belum dihubungkan ke Google Apps Script.');return}
@@ -168,31 +180,27 @@ $('bkForm').addEventListener('submit',async e=>{e.preventDefault();
   catch(err){pesanBK(GAGAL)}finally{btn.disabled=false}});
 $('bkRefresh').onclick=async()=>{try{const r=await api({aksi:'daftar',kodeBK});if(terima(r)){pesanBaru='';render()}else kunci()}catch(err){alert(GAGAL)}};
 $('bkKeluar').onclick=kunci;
-$('search').addEventListener('input',render);$('filterStatus').addEventListener('change',render);
+$('filterStatus').addEventListener('change',render);
 /* ===== Rekap & tren bulanan ===== */
 let rekapPilih='';
-const LEVEL=['Rutin','Perlu perhatian','Segera'],WARNA={'Rutin':'#167d83','Perlu perhatian':'#f0b44c','Segera':'#b93838'},STATUS=['Belum ditinjau','Sedang ditindaklanjuti','Selesai'];
+const LEVEL=['Rutin','Perlu perhatian','Segera'],WARNA={'Rutin':'#167d83','Perlu perhatian':'#f0b44c','Segera':'#b93838'},STATUS=['Belum ditinjau','Segera','Pemantauan','Selesai'];
 const p2=n=>String(n).padStart(2,'0');
 function kunciBulan(r){const s=String(r.dateTime||r.created||'');const m=s.match(/^(\d{4})-(\d{2})/);if(m)return m[1]+'-'+m[2];const d=new Date(s);return isNaN(d)?'':d.getFullYear()+'-'+p2(d.getMonth()+1)}
 function namaBulan(k,panjang){const a=k.split('-').map(Number);return new Date(a[0],a[1]-1,1).toLocaleDateString('id-ID',panjang?{month:'long',year:'numeric'}:{month:'short',year:'2-digit'})}
 function geserBulan(k,n){const a=k.split('-').map(Number),d=new Date(a[0],a[1]-1+n,1);return d.getFullYear()+'-'+p2(d.getMonth()+1)}
 function levelDari(r){return LEVEL.includes(r.level)?r.level:'Rutin'}
 function hitung(daftar,ambil){const c={};daftar.forEach(r=>{[].concat(ambil(r)).forEach(v=>{v=String(v==null?'':v).trim();if(v)c[v]=(c[v]||0)+1})});return Object.entries(c).sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0]))}
-function batang(pasang,total,maks){if(!total||!pasang.length)return '<div class="kosong">Belum ada data pada periode ini.</div>';return pasang.slice(0,maks||6).map(([k,v])=>{const p=Math.round(v/total*100);return `<div class="hbar"><span>${esc(k)}</span><div class="track"><div class="fill" style="width:${v?Math.max(4,p):0}%"></div></div><b>${v} (${p}%)</b></div>`}).join('')}
-function trenSvg(data){
-  const W=560,H=240,L=34,R=8,T=22,B=32,iw=W-L-R,ih=H-T-B,gap=iw/data.length,bw=Math.min(56,gap*.6);
-  const mx=Math.max(4,...data.map(d=>d.tot)),step=Math.ceil(mx/4),yMax=step*4;
-  const alt=data.map(d=>namaBulan(d.k,true)+': '+d.tot+' laporan').join('; ');
-  let s=`<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Tren laporan per bulan. ${esc(alt)}" style="display:block;max-width:100%;height:auto;font-family:inherit">`;
-  for(let i=0;i<=4;i++){const y=T+ih-i*step/yMax*ih;s+=`<line x1="${L}" x2="${W-R}" y1="${y}" y2="${y}" stroke="#dce5ec"/><text x="${L-6}" y="${y+4}" text-anchor="end" font-size="11" fill="#64748b">${i*step}</text>`}
-  data.forEach((d,j)=>{
-    const x=L+gap*j+(gap-bw)/2;let y=T+ih;
-    LEVEL.forEach(l=>{const h=d[l]/yMax*ih;if(h>0){y-=h;s+=`<rect x="${x}" y="${y}" width="${bw}" height="${h}" fill="${WARNA[l]}" rx="2"/>`;if(h>=15)s+=`<text x="${x+bw/2}" y="${y+h/2+4}" text-anchor="middle" font-size="11" font-weight="700" fill="${l==='Perlu perhatian'?'#243447':'#fff'}">${d[l]}</text>`}});
-    s+=`<text x="${x+bw/2}" y="${y-6}" text-anchor="middle" font-size="12" font-weight="800" fill="#17324d">${d.tot}</text>`;
-    s+=`<text x="${x+bw/2}" y="${H-10}" text-anchor="middle" font-size="11.5" fill="#64748b">${esc(namaBulan(d.k))}</text>`;
-  });
-  return s+'</svg>'
+const PAL=['#167d83','#f0b44c','#b93838','#17324d','#7b5ea7','#4a9d5b','#d9772b','#5b8fb9'],WSTATUS={'Belum ditinjau':'#f0b44c','Segera':'#b93838','Pemantauan':'#167d83','Selesai':'#4a9d5b'};
+function batang(pasang,total,maks,warna){
+  let a=pasang.filter(x=>x[1]>0);const tot=a.reduce((m,x)=>m+x[1],0);
+  if(!tot)return '<div class="kosong">Belum ada data pada periode ini.</div>';
+  maks=maks||6;if(a.length>maks){const sisa=a.slice(maks-1).reduce((m,x)=>m+x[1],0);a=a.slice(0,maks-1).concat([['Lainnya',sisa]])}
+  const R=70,C=2*Math.PI*R,wr=(k,i)=>(warna&&warna[k])||PAL[i%PAL.length];let off=0,seg='';
+  a.forEach(([k,v],i)=>{const len=v/tot*C;seg+=`<circle cx="90" cy="90" r="${R}" fill="none" stroke="${wr(k,i)}" stroke-width="30" stroke-dasharray="${len} ${C-len}" stroke-dashoffset="${-off}" transform="rotate(-90 90 90)"/>`;off+=len});
+  const alt=a.map(([k,v])=>k+': '+v).join('; ');
+  return `<div class="donat"><svg viewBox="0 0 180 180" width="160" height="160" role="img" aria-label="Diagram lingkaran. ${esc(alt)}"><circle cx="90" cy="90" r="${R}" fill="none" stroke="#e8eff4" stroke-width="30"/>${seg}<text x="90" y="92" text-anchor="middle" font-size="28" font-weight="800" fill="#17324d">${tot}</text><text x="90" y="110" text-anchor="middle" font-size="11" fill="#64748b">laporan</text></svg><ul class="dl">${a.map(([k,v],i)=>`<li><i style="background:${wr(k,i)}"></i><span>${esc(k)}</span><b>${v} (${Math.round(v/tot*100)}%)</b></li>`).join('')}</ul></div>`
 }
+function trenSvg(data){return batang(data.map(d=>[namaBulan(d.k,true),d.tot]),0,6)}
 function rekap(){
   const per={};laporan.forEach(r=>{const k=kunciBulan(r);if(k)(per[k]=per[k]||[]).push(r)});
   const ada=Object.keys(per).sort(),now=new Date(),skrg=now.getFullYear()+'-'+p2(now.getMonth()+1);
@@ -205,7 +213,7 @@ function rekap(){
   const tot6=data.reduce((s,d)=>s+d.tot,0),puncak=data.reduce((m,d)=>d.tot>m.tot?d:m,data[0]);
   $('trenRingkas').textContent=tot6?`Total ${tot6} laporan dalam 6 bulan; terbanyak pada ${namaBulan(puncak.k,true)} (${puncak.tot} laporan).`:'Belum ada laporan pada 6 bulan terakhir.';
   $('trenChart').innerHTML=trenSvg(data);
-  $('trenLegend').innerHTML=LEVEL.map(l=>`<span><i style="background:${WARNA[l]}"></i>${l}</span>`).join('');
+  $('trenLegend').innerHTML='';
   const semua=rekapPilih==='all',pilih=semua?laporan.filter(r=>kunciBulan(r)):(per[rekapPilih]||[]),n=pilih.length;
   $('rekapJudul').textContent='Rekap '+(semua?'semua bulan':namaBulan(rekapPilih,true));
   const seg=pilih.filter(r=>levelDari(r)==='Segera').length,sel=pilih.filter(r=>r.status==='Selesai').length;
@@ -213,8 +221,8 @@ function rekap(){
   if(semua){kartu4=['Rata-rata per bulan',(n/(ada.length||1)).toFixed(1).replace('.',',')]}
   else{const prev=(per[geserBulan(rekapPilih,-1)]||[]).length,d=n-prev;kartu4=['Dibanding bulan lalu',d>0?'▲ '+d:d<0?'▼ '+(-d):'Tetap']}
   $('rekapStat').innerHTML=[['Total laporan',n],['Prioritas Segera',seg],['Tindak lanjut selesai',n?Math.round(sel/n*100)+'%':'—'],kartu4].map(([a,b])=>`<div class="stat"><span>${a}</span><strong>${b}</strong></div>`).join('');
-  $('rekapPrioritas').innerHTML=batang(LEVEL.map(l=>[l,pilih.filter(r=>levelDari(r)===l).length]),n);
-  $('rekapStatus').innerHTML=batang(STATUS.map(x=>[x,pilih.filter(r=>(r.status||'Belum ditinjau')===x).length]),n);
+  $('rekapPrioritas').innerHTML=batang(LEVEL.map(l=>[l,pilih.filter(r=>levelDari(r)===l).length]),n,6,WARNA);
+  $('rekapStatus').innerHTML=batang(STATUS.map(x=>[x,pilih.filter(r=>(r.status||'Belum ditinjau')===x).length]),n,6,WSTATUS);
   $('rekapEmosi').innerHTML=batang(hitung(pilih,r=>r.emotions),n,6);
   $('rekapKonteks').innerHTML=batang(hitung(pilih,r=>r.context),n,6);
   $('rekapKelas').innerHTML=batang(hitung(pilih,r=>r.className),n,5);
@@ -223,15 +231,15 @@ $('rekapBulan').onchange=e=>{rekapPilih=e.target.value;rekap()};
 function bersihRekap(){rekapPilih='';['trenChart','trenLegend','rekapStat','rekapPrioritas','rekapStatus','rekapEmosi','rekapKonteks','rekapKelas','rekapBulan'].forEach(i=>{$(i).innerHTML=''});['trenRingkas','rekapJudul'].forEach(i=>{$(i).textContent=''})}
 /* ===== akhir rekap ===== */
 /* ===== Kartu ringkasan, filter cepat, dan pembaruan otomatis ===== */
-const NAMA_FILTER={'Semua':'Semua laporan','Belum ditinjau':'Belum ditinjau','Sedang ditindaklanjuti':'Sedang ditindaklanjuti','Selesai':'Selesai','Segera':'Segera (belum selesai)'};
+const NAMA_FILTER={'Semua':'Total laporan (semua nama)','Belum ditinjau':'Belum ditinjau (laporan baru)','Segera':'Segera','Pemantauan':'Pemantauan','Selesai':'Selesai'};
 function segarkanKartu(){
-  const pend=laporan.filter(r=>r.status==='Belum ditinjau').length,seg=laporan.filter(r=>r.level==='Segera'&&r.status!=='Selesai').length;
-  $('newStat').classList.toggle('ada',pend>0);$('urgentStat').classList.toggle('ada',seg>0);
+  const n=x=>laporan.filter(r=>r.status===x).length;
+  $('newStat').classList.toggle('ada',n('Belum ditinjau')>0);$('urgentStat').classList.toggle('ada',n('Segera')>0);
   const jam=new Date(waktuMuat||Date.now()).toLocaleTimeString('id-ID',{hour:'2-digit',minute:'2-digit'});
   $('infoDasbor').textContent=(pesanBaru?pesanBaru+' · ':'')+'Diperbarui otomatis setiap 1 menit · terakhir '+jam;
 }
 function gulirKe(el){const kurang=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;el.scrollIntoView({behavior:kurang?'auto':'smooth',block:'start'})}
-document.querySelectorAll('[data-go]').forEach(b=>{b.onclick=()=>{$('filterStatus').value=b.dataset.go;$('search').value='';render();gulirKe($('filterBar'));$('hasilFilter').focus({preventScroll:true})}});
+document.querySelectorAll('[data-go]').forEach(b=>{b.onclick=()=>{$('filterStatus').value=b.dataset.go;render();gulirKe($('filterBar'));$('hasilFilter').focus({preventScroll:true})}});
 async function cekBaru(){
   if(!kodeBK||document.hidden||$('bkApp').classList.contains('hidden'))return;
   try{
@@ -269,7 +277,7 @@ function gambarPublik(){
   const tot6=data.reduce((s,d)=>s+d.tot,0),puncak=data.reduce((m,d)=>d.tot>m.tot?d:m,data[0]);
   $('pubTrenRingkas').textContent=tot6?`Total ${tot6} laporan dalam 6 bulan; terbanyak pada ${namaBulan(puncak.k,true)} (${puncak.tot} laporan).`:'Belum ada laporan pada 6 bulan terakhir.';
   $('pubTrenChart').innerHTML=trenSvg(data);
-  $('pubTrenLegend').innerHTML=LEVEL.map(l=>`<span><i style="background:${WARNA[l]}"></i>${l}</span>`).join('');
+  $('pubTrenLegend').innerHTML='';
   const semua=pubPilih==='all',x=semua?pubData.semua:(bln[pubPilih]||{tot:0,level:{},status:{},emosi:{},konteks:{},rincian:false}),n=x.tot;
   $('pubJudul').textContent='Ringkasan '+(semua?'semua bulan':namaBulan(pubPilih,true));
   const belum=x.status['Belum ditinjau']||0,sel=x.status['Selesai']||0;
@@ -277,8 +285,8 @@ function gambarPublik(){
   if(semua){kartu4=['Rata-rata per bulan',(n/(ada.length||1)).toFixed(1).replace('.',',')]}
   else{const prev=bln[geserBulan(pubPilih,-1)]?bln[geserBulan(pubPilih,-1)].tot:0,d=n-prev;kartu4=['Dibanding bulan lalu',d>0?'▲ '+d:d<0?'▼ '+(-d):'Tetap']}
   $('pubStat').innerHTML=[['Total laporan',n],['Sudah ditinjau Guru BK',n?Math.round((n-belum)/n*100)+'%':'—'],['Tindak lanjut selesai',n?Math.round(sel/n*100)+'%':'—'],kartu4].map(([a,b])=>`<div class="stat"><span>${a}</span><strong>${b}</strong></div>`).join('');
-  $('pubPrioritas').innerHTML=batang(LEVEL.map(l=>[l,x.level[l]||0]),n);
-  $('pubStatus').innerHTML=batang(STATUS.map(t=>[t,x.status[t]||0]),n);
+  $('pubPrioritas').innerHTML=batang(LEVEL.map(l=>[l,x.level[l]||0]),n,6,WARNA);
+  $('pubStatus').innerHTML=batang(STATUS.map(t=>[t,(x.status[t]||0)+(t==='Pemantauan'?(x.status['Sedang ditindaklanjuti']||0):0)]),n,6,WSTATUS);
   const urut=o=>Object.entries(o||{}).sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0]));
   const sembunyi=`<div class="kosong">Rincian disembunyikan karena baru ada ${n} laporan (minimal ${pubData.minRincian}) agar identitas peserta didik tetap terlindungi.</div>`;
   $('pubEmosi').innerHTML=(n&&!x.rincian)?sembunyi:batang(urut(x.emosi),n,6);
@@ -288,24 +296,31 @@ function gambarPublik(){
 }
 $('pubBulan').onchange=e=>{pubPilih=e.target.value;gambarPublik()};
 $('pubRefresh').onclick=()=>muatPublik(true);
+const KOSONG={'Belum ditinjau':'Tidak ada laporan baru. Semua laporan yang masuk sudah ditindaklanjuti.','Semua':'Belum ada laporan.'};
+function kartuNama(r){
+  const sg=r.level==='Segera';
+  return `<details class="report nama" id="rep-${esc(r.id)}"><summary><span class="nm">${esc(r.student)}</span><span class="kl">${esc(r.className)}</span><span class="tg">${esc(fmt(r.dateTime))}</span><span class="pill ${sg?'urgent':r.level==='Perlu perhatian'?'high':''}">${esc(r.level)}</span></summary><div class="isi"><div class="meta" style="margin-top:10px">Dilaporkan oleh ${esc(r.reporter)} · Konteks: ${esc(r.context)}${r.status!=='Belum ditinjau'?` · Bagian: <strong>${esc(r.status)}</strong>`:''}</div><p><strong>Emosi/respons:</strong> ${r.emotions.map(x=>`<span class="tag">${esc(x)}</span>`).join(' ')}</p><p><strong>Pengamatan:</strong> ${esc(r.observation)}</p>${r.trigger?`<p><strong>Pemicu:</strong> ${esc(r.trigger)}</p>`:''}${r.support?`<p><strong>Dukungan awal:</strong> ${esc(r.support)}</p>`:''}${r.contact?`<p><strong>Hubungi keluarga:</strong> ${esc(r.contact)}</p>`:''}${r.notes?`<p><strong>Info tambahan:</strong> ${esc(r.notes)}</p>`:''}<div class="followbox"><label for="status-${esc(r.id)}">Status tindak lanjut (menentukan bagian tempat nama siswa dipindahkan)</label><select id="status-${esc(r.id)}">${STATUS.map(o=>`<option ${r.status===o?'selected':''}>${o}</option>`).join('')}</select><label for="follow-${esc(r.id)}">Catatan tindak lanjut BK (hindari detail sensitif yang tidak perlu)</label><textarea id="follow-${esc(r.id)}">${esc(r.followup)}</textarea><div class="btnrow"><button class="btn" type="button" data-save="${esc(r.id)}">Simpan tindak lanjut</button></div></div></div></details>`
+}
 function render(){
-  const pend=laporan.filter(r=>r.status==='Belum ditinjau').length;
+  const n=x=>laporan.filter(r=>r.status===x).length,pend=n('Belum ditinjau');
   $('pendingCount').textContent=kodeBK&&pend?`(${pend})`:'';
-  $('totalStat').textContent=laporan.length;$('newStat').textContent=pend;
-  $('urgentStat').textContent=laporan.filter(r=>r.level==='Segera'&&r.status!=='Selesai').length;
+  $('totalStat').textContent=laporan.length;$('newStat').textContent=pend;$('urgentStat').textContent=n('Segera');$('monStat').textContent=n('Pemantauan');$('doneStat').textContent=n('Selesai');
   segarkanKartu();
   rekap();
-  const q=$('search').value.toLowerCase(),st=$('filterStatus').value||'Semua';
-  const shown=laporan.filter(r=>(st==='Semua'||(st==='Segera'?(r.level==='Segera'&&r.status!=='Selesai'):r.status===st))&&[r.student,r.className,r.reporter,r.observation].join(' ').toLowerCase().includes(q));
-  $('reportsList').innerHTML=shown.map(r=>`<article class="report"><div class="reporttop"><div><h3>${esc(r.student)} · ${esc(r.className)}</h3><div class="meta">Dilaporkan oleh ${esc(r.reporter)} · ${esc(fmt(r.dateTime))}<br>Konteks: ${esc(r.context)}</div></div><span class="pill ${r.level==='Segera'?'urgent':r.level==='Perlu perhatian'?'high':''}">${esc(r.level)}</span></div><p><strong>Emosi/respons:</strong> ${r.emotions.map(x=>`<span class="tag">${esc(x)}</span>`).join(' ')}</p><p><strong>Pengamatan:</strong> ${esc(r.observation)}</p>${r.trigger?`<p><strong>Pemicu:</strong> ${esc(r.trigger)}</p>`:''}${r.support?`<p><strong>Dukungan awal:</strong> ${esc(r.support)}</p>`:''}${r.contact?`<p><strong>Hubungi keluarga:</strong> ${esc(r.contact)}</p>`:''}${r.notes?`<p><strong>Info tambahan:</strong> ${esc(r.notes)}</p>`:''}<div class="followbox"><label for="status-${r.id}">Status tindak lanjut</label><select id="status-${r.id}">${['Belum ditinjau','Sedang ditindaklanjuti','Selesai'].map(o=>`<option ${r.status===o?'selected':''}>${o}</option>`).join('')}</select><label for="follow-${r.id}">Catatan tindak lanjut BK (hindari detail sensitif yang tidak perlu)</label><textarea id="follow-${r.id}">${esc(r.followup)}</textarea><div class="btnrow"><button class="btn" type="button" data-save="${r.id}">Simpan tindak lanjut</button></div></div></article>`).join('');
+  const st=$('filterStatus').value||'Belum ditinjau';
+  let shown=laporan.filter(r=>st==='Semua'||r.status===st);
+  if(st==='Belum ditinjau'||st==='Semua')shown=[...shown].sort((a,b)=>(b.level==='Segera')-(a.level==='Segera'));
+  const buka=new Set([...document.querySelectorAll('#reportsList details[open]')].map(d=>d.id));
+  $('reportsList').innerHTML=shown.map(kartuNama).join('');
+  document.querySelectorAll('#reportsList details').forEach(d=>{if(buka.has(d.id))d.open=true});
+  $('emptyState').textContent=KOSONG[st]||'Belum ada nama siswa pada bagian ini.';
   $('emptyState').classList.toggle('hidden',shown.length>0);
-  const qAsli=$('search').value.trim(),aktif=st!=='Semua'||qAsli;
-  $('hasilFilter').innerHTML=`<span>Menampilkan <strong>${shown.length}</strong> dari ${laporan.length} laporan · ${esc(NAMA_FILTER[st]||st)}${qAsli?` · pencarian “${esc(qAsli)}”`:''}</span>`+(aktif?'<button class="btn secondary" type="button" id="resetFilter">Tampilkan semua</button>':'');
-  if(aktif)$('resetFilter').onclick=()=>{$('filterStatus').value='Semua';$('search').value='';render()};
-  document.querySelectorAll('[data-go]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.go===st&&!qAsli)));
+  $('hasilFilter').innerHTML=`<span>Daftar nama siswa · <strong>${esc(NAMA_FILTER[st]||st)}</strong> · ${shown.length} nama</span>`+(st!=='Belum ditinjau'?'<button class="btn secondary" type="button" id="resetFilter">Kembali ke laporan baru</button>':'');
+  if(st!=='Belum ditinjau')$('resetFilter').onclick=()=>{$('filterStatus').value='Belum ditinjau';render()};
+  document.querySelectorAll('[data-go]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.go===st)));
   document.querySelectorAll('[data-save]').forEach(b=>b.onclick=async()=>{const id=b.dataset.save,status=$('status-'+id).value,followup=$('follow-'+id).value.trim();b.disabled=true;
     try{const r=await api({aksi:'ubah',kodeBK,id,status,followup});
-      if(r.ok){const x=laporan.find(v=>v.id===id);x.status=status;x.followup=followup;render();alert('Tindak lanjut tersimpan.')}else alert(r.pesan||'Gagal menyimpan.')}
+      if(r.ok){const x=laporan.find(v=>v.id===id),lama=x.status;x.status=status;x.followup=followup;render();alert(lama===status?'Tindak lanjut tersimpan.':'Tindak lanjut tersimpan. Nama siswa dipindahkan ke bagian “'+status+'”.')}else alert(r.pesan||'Gagal menyimpan.')}
     catch(err){alert('Gagal menyimpan. Periksa koneksi internet.')}finally{b.disabled=false}});
 }
 </script>
